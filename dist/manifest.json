@@ -1,0 +1,25 @@
+{
+  "name": "Dynata R&D Help Desk Assistant",
+  "description": "Generate R&D help desk request automatically",
+  "version": "1.0",
+  "manifest_version": 3, 
+  "background":{
+  	  "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.survey-d.dynata.com/survey/*"],
+      "js": [
+        "content.js"
+      ],
+      "css":[
+        "css/helpdesk-widget.css"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "permissions":["storage", "tabs", "scripting"],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
